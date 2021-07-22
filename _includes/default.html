@@ -67,9 +67,9 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="{{ site.BASE_PATH }}/">Home</a></li>
-				<li><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}">Categories</a></li>
-				<li><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}">Tags</a></li>
+				<li class="active"><a href="{{ site.BASE_PATH }}/">홈</a></li>
+				<li><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}">카테고리</a></li>
+				<li><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}">태그</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>
@@ -80,11 +80,14 @@
 			<i class="fa fa-bars"></i>
 		</button>
 		<ul class="dropdown-menu" role="menu">
-			<li><a href="{{ site.BASE_PATH}}/"><i class="fa fa-home"></i>Home</a></li>
-			<li><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}"><i class="fa fa-folder"></i>Categories</a></li>
-			<li><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}"><i class="fa fa-tags"></i>Tags</a></li>
+			<li><a href="{{ site.BASE_PATH}}/"><i class="fa fa-home"></i>홈</a></li>
+			<li><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}"><i class="fa fa-folder"></i>카테고리</a></li>
+			<li><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}"><i class="fa fa-tags"></i>태그</a></li>
 			<li class="divider"></li>
-			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+			<li><a href="https://github.com/{{ site.author.github }}"><i class="fa fa-github-alt"></i>깃허브</a></li>
+			<li><a href="https://instagram.com/{{ site.author.instagram }}"><i class="fa fa-instagram"></i>인스타그램</a></li>
+			<li><a href="https://www.youtube.com/channel/UCse2sGik0zU4fVNZyDjhcOQ"><i class="fa fa-youtube"></i>유튜브</a></li>
+			{% comment %} <li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li> {% endcomment %}
 		</ul>
 	</div>
 
@@ -98,8 +101,7 @@
 		<footer>
 			<hr/>
 			<p>
-				&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
-			</p>
+				&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
 		</footer>
 	</div>
 

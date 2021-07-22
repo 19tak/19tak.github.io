@@ -9,9 +9,18 @@
 </header>
 
 {% if site.author.bio %}
-<div id="bio" class="text-center">
+{% comment %} <div id="bio" class="text-center">
 	{{ site.author.bio }}
-</div>
+</div> {% endcomment %}
+<div class="text-center">
+저는 공학자, 개발자 <br/>
+그리고 래퍼로서 꿈을 지속하고 있는 백수입니다.
+</br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br>
+취미는</br>게임 : League Of Legends, Tekken<br/>
+요리 : 양식 위주의 파티음식<br/>
+작사 : Hiphop 장르 위주의 작사, 공연 활동
+</div><br/>
 {% endif %}
 
 <div id="contact-list" class="text-center">
@@ -23,13 +32,27 @@
 			</a>
 		</li>
 		{% endif %}
-		{% if site.author.twitter %}
+		{% if site.author.instagram %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://instagram.com/{{ site.author.instagram }}">
+				<i class="fa fa-instagram fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if site.author.youtube %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://www.youtube.com/channel/UCse2sGik0zU4fVNZyDjhcOQ">
+				<i class="fa fa-youtube fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% comment %} {% if site.author.twitter %}
 		<li>
 			<a class="btn btn-default btn-sm" href="https://twitter.com/{{ site.author.twitter }}">
 				<i class="fa fa-twitter fa-lg"></i>
 			</a>
 		</li>
-		{% endif %}
+		{% endif %} {% endcomment %}
 		{% if site.author.email %}
 		<li>
 			<a class="btn btn-default btn-sm" href="mailto:{{ site.author.email }}">
@@ -38,7 +61,7 @@
 		</li>
 		{% endif %}
 	</ul>
-	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+	{% comment %} <ul id="contact-list-secondary" class="list-unstyled list-inline">
 		{% if site.author.pinterest %}
 		<li>
 			<a class="btn btn-default btn-sm" href="https://pinterest.com/{{ site.author.pinterest }}">
@@ -58,6 +81,6 @@
 				<i class="fa fa-rss fa-lg"></i>
 			</a>
 		</li>
-	</ul>
+	</ul> {% endcomment %}
 </div>
 <!-- sidebar.html end -->
