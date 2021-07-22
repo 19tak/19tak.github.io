@@ -1,0 +1,204 @@
+I"�7<h4 id="2021년-7월-21일">2021년 7월 21일</h4>
+<p>평소 공부할 때, 구글링으로 다른 분들의 블로그 포스팅을 보며 <br />
+아.. 나도 멋있는 블로그를 하나 만들어야겠다..는 생각이 들었다. <br />
+아니, 그렇게 멋있지는 않더라도 나도 <br />
+<code class="language-plaintext highlighter-rouge">'19tak.github.io'</code>라는 멋있는 주소가 가지고 싶었다. <br />
+그렇게 이 포스팅이 탄생하게 되었다.</p>
+<h1 id="github-blog-시작하기">Github Blog 시작하기</h1>
+<p>순서가 뒤죽박죽일 확률이 있다.. 술먹은 상태로 울다가 공부하는 것이 요즘 나의 취미이자 특기이다.. <br />
+그래서 순서가 기억이 안난다.. 그래도 열심히 포스팅 해보도록 하겠다. <br />
+본인의 노트북 OS 는 윈도우10 과, VSCode 를 사용하고 있으며, 
+상세 스펙은 다음과 같다. <br />
+<img src="https://user-images.githubusercontent.com/84369912/126664735-a45c5564-d4c2-4d86-848a-c41caf0161c5.png" alt="image" /></p>
+
+<p>큰 의미는 없을 것 같지만, 첫 포스팅인만큼 뭔가 더 담아야 할 것 같은 그런기분이다. <br />
+비전공자이기 때문에 더욱 고생한 것 같고, 그러고 있을 다른 사람들을 위해서라도.. <br />
+Github는 21년 5월쯤 첫 존재를 알았고, 6월 중순부터 진행한 교육기간 내 팀프로젝트에서 처음으로 사용하였다. <br />
+여러분들도 하나씩 하나씩 따라가보자. 순서는 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0. Git &amp; Github
+1. Ruby &amp; Jekyll
+2. Hosting Blog
+   - New Repository
+   - Using Jekyll Theme
+3. Tips for Blogging
+</code></pre></div></div>
+
+<h3 id="0-git--github">0. Git &amp; Github</h3>
+<blockquote>
+  <p><strong>Git</strong> 은 일종의 관리시스템이라 생각하면 될 것 같다.</p>
+
+  <p>개발과정 전역에 걸쳐서 <strong>Local repository</strong> 에서 각 파일의 수정 등을 기록으로 남길 수 있고</p>
+
+  <p>이를 <strong><a href="https://github.com" title="깃허브">github</a></strong> 에서 <strong>Remote repository</strong> 를 만들어 주면 타인과도 그 기록에 대해서 같이 나눌 수 있다.</p>
+
+  <p>이때의 <strong>Remote repository</strong> 를 활용하여 게시글을 보여주는 것이 github를 활용한 블로그 관리라고 할 수 있겠다.</p>
+
+  <p>자세한 내용은 다른 블로그를 참고하는 것이 좋을 것 같다.</p>
+</blockquote>
+
+<h3 id="1-ruby--jekyll">1. Ruby &amp; Jekyll</h3>
+<blockquote>
+  <p><strong><a href="https://ko.wikipedia.org/wiki/%EB%A3%A8%EB%B9%84_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)" title="Ruby">Ruby</a></strong> 와 
+<strong><a href="https://en.wikipedia.org/wiki/Jekyll_(software)" title="Jekyll">Jekyll</a></strong> 은 Github Blog를 제작할때 가장 많이 사용하는 tool 이다.</p>
+
+  <p>순서는 다음과 같다. <code class="language-plaintext highlighter-rouge">Ruby</code> 설치 -&gt; <code class="language-plaintext highlighter-rouge">Jekyll</code> 설치 &amp; <code class="language-plaintext highlighter-rouge">bundler</code> 설치</p>
+
+  <p><code class="language-plaintext highlighter-rouge">Jekyll</code>은 <code class="language-plaintext highlighter-rouge">Ruby</code>로 만들어져있고, <code class="language-plaintext highlighter-rouge">bundler</code>는 <code class="language-plaintext highlighter-rouge">gem</code>의 관리 프로그램..라고 생각하면 될 것 같다.</p>
+
+  <blockquote>
+    <p>단, Ruby는 Linux 시스템 위에서 동작한다.</p>
+
+    <p><strong>Windows Subsystem for Linux (WSL)</strong> 을 활용하여 Windows 에서도 Linux 환경을 바로 이용하자.</p>
+
+    <p>현재는 WSL2 도 배포 중이며 자세한 설치는 <strong><a href="https://docs.microsoft.com/ko-kr/windows/wsl/install-win10" title="WSL">WSL 설치 공식문서</a></strong> 를 참고하자.</p>
+  </blockquote>
+
+  <p>현재 우리는 WSL2 를 사용하기 때문에 WSL 의 Linux Terminal 에서 Ruby 를 설치해도 괜찮고,</p>
+
+  <p>Windows 환경에서 <strong><a href="https://www.ruby-lang.org/ko/downloads/" title="Ruby Download">RubyInstaller</a></strong> 로 설치해도 괜찮을 것이다.<br />
+<img src="https://user-images.githubusercontent.com/84369912/126687235-25e57b6b-6bfd-448d-9e64-92ab25e980e0.png" alt="image" /></p>
+
+  <p><code class="language-plaintext highlighter-rouge">cmd</code>가 실행되고 다음과 같은 화면에서 3번을 눌러주면 된다.</p>
+
+  <p><img src="https://user-images.githubusercontent.com/84369912/126687408-275feb6a-bf51-4e4a-9514-3bc274f7ffe7.png" alt="image" /></p>
+
+  <p><code class="language-plaintext highlighter-rouge">Linux Terminal</code>에서 설치를 진행할때는 다음과 같이 입력하면 될 것이다.</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+</code></pre></div>  </div>
+  <p><br />
+  설치가 완료되었으면 다음 명령어로 Ruby 의 설치와 버전을 확인해 준다.</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -v
+</code></pre></div>  </div>
+  <p><br />
+<code class="language-plaintext highlighter-rouge">gem</code>은 Ruby 의 패키지다. gem 들은 <code class="language-plaintext highlighter-rouge">RubyGems</code>에 의해 관리되지만, 패키지 의존성 문제로 <code class="language-plaintext highlighter-rouge">bundler</code>를 사용한다.</p>
+
+  <p>다음 명령어로 jekyll 과 bundler 를 설치하도록 하자.<br /></p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll
+gem install bundler
+</code></pre></div>  </div>
+</blockquote>
+
+<h3 id="2-hosting-blog">2. Hosting Blog</h3>
+<blockquote>
+  <p>기초적인 준비가 이제 끝났다고 생각하면 될 것 같다. 이제 블로그를 호스팅 해보도록 하자.</p>
+</blockquote>
+
+<h4 id="2-1-new-repository">2-1. New Repository</h4>
+<blockquote>
+  <p>github 에서 새로운 repository 를 생성해준다.</p>
+
+  <p>이 때, 이름은 반드시 <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code> 의 형태로 <code class="language-plaintext highlighter-rouge">&lt;username&gt;</code>에 자신의 아이디를 넣어서 생성해준다.</p>
+
+  <p><img src="https://user-images.githubusercontent.com/84369912/126679919-2f279bb6-6607-468b-a635-92dc8b38a67c.png" alt="image" /></p>
+
+  <p>본인은 이런식으로 README 체크를 해주었는데 크게 상관 없다.</p>
+
+  <p>이후 <strong>git clone</strong> 을 통해 <strong>Local repository</strong> 에 복사해준다.</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone &lt;remote repository url&gt;
+</code></pre></div>  </div>
+  <p><br />
+앞서 생성해준 <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code>의 <strong>repository url</strong> 을 <code class="language-plaintext highlighter-rouge">&lt;remote repository url</code> 에 넣어서 명령을 내린다.</p>
+
+  <p>이제 이 <strong>Local repository</strong> 를 통해 <code class="language-plaintext highlighter-rouge">jekyll</code>로 이쁘게 만든 파일들을 <strong>git push</strong> 하게 될 경우</p>
+
+  <p><code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code> 의 주소로 당신의 블로그가 만들어진다. <br />
+<br />
+ clone 을 포함한 git 의 사용법은 다른 블로그를 참고하는 것이 좋을 것 같다.</p>
+</blockquote>
+
+<h4 id="2-2-using-jekyll-theme">2-2. Using Jekyll Theme</h4>
+<blockquote>
+  <p>직접 블로그의 전체적인 디자인을 하기에는 시간과 노력이 너무 많이 든다.</p>
+
+  <p>다른 사람들이 만들어둔 테마를 이용해서 커스텀을 해보자.</p>
+
+  <ul>
+    <li>
+      <p><a href="https://jamstackthemes.dev" title="jamstackthemes.dev">jamstackthemes.dev</a></p>
+    </li>
+    <li>
+      <p><a href="https://jekyllthemes.org" title="jekyllthemes.org">jekyllthemes.org</a></p>
+    </li>
+    <li>
+      <p><a href="https://jekyllthemes.io" title="jekyllthemes.io">jekyllthemes.io</a></p>
+    </li>
+    <li>
+      <p><a href="https://jekyll-themes.com" title="jekyll-themes.com">jekyll-themes.com</a></p>
+    </li>
+  </ul>
+
+  <p>해당 사이트들에서 원하는 디자인으로 하나 골라보자.</p>
+
+  <p><img src="https://user-images.githubusercontent.com/84369912/126683079-cc8acb78-31b3-4eec-8f4e-0dd951a90d82.png" alt="image" /></p>
+
+  <p>이런 식으로 theme 들의 github repository 링크와 live demo 버전이 있으니 여러 후보를 만들자.</p>
+
+  <p><img src="https://user-images.githubusercontent.com/84369912/126683515-251843a3-5956-4ba3-94df-ec65b16d2698.png" alt="image" /></p>
+
+  <p>theme 의 github 로 이동하였을때, <code class="language-plaintext highlighter-rouge">fork</code>~<code class="language-plaintext highlighter-rouge">clone</code> , <code class="language-plaintext highlighter-rouge">Download ZIP</code> 등 편한 방법으로 theme 파일들을</p>
+
+  <p><code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code> <strong>Local repository</strong> 에 다운받자. <code class="language-plaintext highlighter-rouge">README.md</code> 등이 덮어씌워져도 지금은 상관이 없다.</p>
+
+  <p>터미널에서 <strong>Local repository</strong> 로 경로 이동을 한 뒤 다음 명령어를 실행해주자.</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new ./
+bundle install
+</code></pre></div>  </div>
+  <p><br /></p>
+
+  <p>이제 로컬 서버에 띄워서 확인을 해보자.</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div>  </div>
+  <p><br /></p>
+
+  <p>다음과 같이 로컬 서버의 주소가 보이면 성공. 이제 <code class="language-plaintext highlighter-rouge">git push</code>를 통해 <strong>Remote repository</strong> 에 올리면</p>
+
+  <p>로컬 서버가 아닌 <strong>username.github.io</strong> 으로 접속이 가능할 것이다.</p>
+
+  <p><img src="https://user-images.githubusercontent.com/84369912/126685118-c464e6bf-2064-4e6b-b47e-bd70153745a3.png" alt="image" /></p>
+
+  <p>이제 남은 것은 직접 디자인 커스텀과, 정보를 채워 나가는 것, 그리고 게시글 포스팅 정도이다.</p>
+
+  <p>디자인과 정보는 <code class="language-plaintext highlighter-rouge">_config.yml</code> ,<code class="language-plaintext highlighter-rouge">~.html</code>, <code class="language-plaintext highlighter-rouge">~.css</code>, <code class="language-plaintext highlighter-rouge">~.js</code> 의 파일들을 보면 될 것이다.</p>
+
+  <p><img src="https://user-images.githubusercontent.com/84369912/126686031-a862838a-8266-41ef-8432-2d9008e9247a.png" alt="image" /></p>
+
+  <p>포스팅은 <code class="language-plaintext highlighter-rouge">_posts</code> 폴더의 <code class="language-plaintext highlighter-rouge">~.md</code> 파일들로 이루어진다. <strong>mark down</strong> 작성법은 다른 블로그를 참고하는 것이 좋을 것 같다.</p>
+
+</blockquote>
+
+<h3 id="3-tips-for-blogging">3. Tips for Blogging</h3>
+<p>기억이 잘 나지 않지만, <code class="language-plaintext highlighter-rouge">Ruby</code>, <code class="language-plaintext highlighter-rouge">Jekyll</code>, <code class="language-plaintext highlighter-rouge">bundler</code>의 설치과정, 그리고 마지막의 로컬 서버 호스팅 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> 까지</p>
+
+<p>많은 오류가 있었고, 해결을 하기 위해 구글 바다를 헤엄쳐 다녔다. 그 중 기억나는 것부터 작성한다.</p>
+
+<h4 id="error-fixing">Error fixing</h4>
+<p>첫 번째로는 <strong>git bash</strong> 오류이다. 나는 터미널을 VSCode 에서 사용하고 있는데, <br />
+사실 여기가 헷갈리는 부분이다. 내가 wsl과 ubuntu도 설치 하였고, git bash도 사용하고, 뭐를 쓰고있었는지 모르겠는데 <br />
+결국 지금 사용하고 있는것은 git bash 라는 점에서, 아마 나와 같은 길을 걷게 되실 분이 좀 있을 것 같다.</p>
+<blockquote>
+  <p>여기까지 오는 길도 험난했는데 <code class="language-plaintext highlighter-rouge">git bash syntax error near unexpected token</code> 오류만 반나절 겪은 것 같다.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">home directory</code> 내의 <code class="language-plaintext highlighter-rouge">.bashrc</code> 파일 내부의 오타 같은 것에 의해서 발생한 오류로 파악하고 있다.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">export PATH</code>의 <strong>경로에 따옴표</strong> 를 붙여주거나, <strong>경로 중간의 소괄호 양 끝에 따옴표</strong> 를 붙여주며 해결되었다.</p>
+
+  <p>명령어로 하는 법을 몰라서 나는 <code class="language-plaintext highlighter-rouge">.bashrc</code>를 메모장으로 열어서 직접 수정해주었다.</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH = ~어쩌구~   
+export PATH = " ~저쩌구~ "   
+export PATH = ' ~절씨구~ '   
+   
+export PATH = /c/Program Files (x86)/브라움만미드라구~   
+export PATH = /c/Program Files "(x86)"/~   
+</code></pre></div>  </div>
+</blockquote>
+
+<p>두 번째로는 <strong>jekyll</strong> 오류인데 나는 테마를 정하기 위해 바꾸는 과정에서 매번 발생했다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">'require': cannot load such file ~</code>라는 오류메세지가 나온다.</p>
+:ET
