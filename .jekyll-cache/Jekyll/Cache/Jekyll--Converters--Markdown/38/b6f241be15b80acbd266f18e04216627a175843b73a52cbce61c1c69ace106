@@ -1,0 +1,84 @@
+I"�<h2 id="문제">문제</h2>
+<p>다음 조건에 맞는 클래스를 설계하시오.(클래스 다이어그램과 코드 제출할 것)</p>
+
+<h2 id="답안">답안</h2>
+<p><img src="https://user-images.githubusercontent.com/84369912/126754270-400cf05a-fdac-4c78-8274-d4af9409b9bb.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import random2
+
+
+class StudentInfo:
+    
+    def __init__(self):
+        print('init')
+        self.__studentNum = random2.randint(1, 100)
+        self.__name=random2.randint(1,100)
+        self.__kor = random2.randint(1, 100)
+        self.__eng = random2.randint(1, 100)
+        self.__math = random2.randint(1, 100)
+        self.__total = self.__kor + self.__math + self.__eng
+
+    def display(self):
+        print("학번:",self.__studentNum," 이름:",self.__name)
+        print("국어:",self.__kor, " 영어:", self.__eng, " 수학:", self.__math, "총점 = ", self.__total,"\n")
+    
+    #decorator pattern
+    @property
+    def name(self):
+        return self.__name
+    
+    @name.setter
+    def name(self, name):
+        self.__name = name
+    
+    @property
+    def kor(self):
+        return self.__kor
+    
+    @kor.setter
+    def kor(self, score):
+        if score &gt;= 0:
+            self.__kor = score
+            
+    @property
+    def math(self):
+        return self.__math
+    
+    @kor.setter
+    def math(self, score):
+        if score &gt;= 0:
+            self.__math = score
+            
+    @property
+    def eng(self):
+        return self.__eng
+    
+    @kor.setter
+    def eng(self, score):
+        if score &gt;= 0:
+            self.__eng = score
+
+
+# Create instance
+s1=StudentInfo()
+s1.name="홍길동"
+s1.kor=25
+s1.eng=34
+s1.math=56
+s1.display()
+
+s2=StudentInfo()
+s2.name="김길동"
+s2.kor=56
+s2.eng=78
+s2.math=34
+s2.display()
+
+s3=StudentInfo()
+s3.name="이길동"
+s3.kor=78
+s3.eng=56
+s3.math=78
+s3.display()
+</code></pre></div></div>
+:ET

@@ -1,0 +1,63 @@
+I"
+<h1 id="문제">문제</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import GridSearchCV
+
+# feature 데이터 셋과 Label 데이터 셋 추출. 
+titanic_df = pd.read_csv('./titanic_train.csv')
+y_titanic_df = titanic_df['Survived']
+X_titanic_df= titanic_df.drop('Survived',axis=1)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(titanic_df.info())
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126758029-e1aedaff-3ee7-40e1-9a43-6678c727d349.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 전처리 관련 함수
+
+# Null 처리 함수
+# Null 값 처리 -&gt; age : 평균
+# Cabin, Embarked : 'Null'
+def fillna(df):
+    df['Age'].fillna(df['Age'].mean(),inplace=True)
+    df['Cabin'].fillna('Null',inplace=True)
+    df['Embarked'].fillna('Null',inplace=True)
+    df['Fare'].fillna(0,inplace=True)
+    print('데이터 세트 Null 값 갯수 : ',df.isnull().sum().sum())
+    print('데이터 세트 Na 값 갯수 : ',df.isna().sum().sum())
+    return df
+
+# 머신러닝 알고리즘에 불필요한 속성 제거
+def drop_features(df):
+    df.drop(['PassengerId','Name','Ticket'],axis=1,inplace=True)
+    return df
+
+# 레이블 인코딩 수행. 
+# Cabin (선실)의 등급만을 표기 하기 위해 맨 앞의 알파벳만
+def format_features(df):
+    df['Cabin'] = df['Cabin'].str[:1]
+    features = ['Cabin','Sex','Embarked']
+    for feature in features:
+        le = LabelEncoder()
+        le = le.fit(df[feature])
+        df[feature] = le.transform(df[feature])
+    return df
+
+# 앞에서 설정한 Data Preprocessing 함수 호출
+def transform_features(df):
+    df = fillna(df)
+    df = drop_features(df)
+    df = format_features(df)
+    return df
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_titanic_df = transform_features(X_titanic_df)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126758062-00250815-1402-4ec6-8dc3-217b8b8c346f.png" alt="image" /></p>
+:ET

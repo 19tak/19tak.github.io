@@ -1,0 +1,38 @@
+I"�<h2 id="문제">문제</h2>
+<p>마당서점의 고객이 요구하는 다음 질문에 대해 SQL 문을 작성하시오.</p>
+<ol>
+  <li>박지성이 구매하지 않은 도서의 이름</li>
+</ol>
+
+<p>​</p>
+
+<p>마당서점의 운영자와 경영자가 요구하는 다음 질문에 대해 SQL 문을 작성하시오.</p>
+<ol>
+  <li>주문하지 않은 고객의 이름(부속질의 사용)</li>
+  <li>도서의 가격(Book 테이블)과 판매가격(Orders 테이블)의 차이가 가장 많은 주문</li>
+  <li>도서의 판매액 평균보다 자신의 구매액 평균이 더 높은 고객의 이름</li>
+</ol>
+
+<h2 id="답안">답안</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- 과제2
+-- 1. (5) 박지성이 구매한 도서의 출판사 수
+select count(distinct book.publisher) as 출판사수 
+from customer,orders,book
+where customer.custid=orders.custid and book.bookid=orders.bookid and customer.name='박지성';
+-- 1. (6) 박지성이 구매한 도서의 이름, 가격, 정가와 판매가격의 차이
+select book.bookname as 도서이름, book.price as 정가, orders.saleprice as 판매가격,
+(book.price - orders.saleprice) as  가격차이
+from customer,orders,book
+where customer.custid=orders.custid and book.bookid=orders.bookid and customer.name='박지성';
+-- 2. (9) 주문 금액의 총액과 주문의 평균 금액
+select sum(saleprice) as 주문총액, avg(saleprice) as 평균총액
+from orders;
+-- 2. (10) 고객의 이름과 고객별 구매액
+select customer.name as 이름, sum(orders.saleprice) as 구매액
+from customer,orders where customer.custid=orders.custid group by customer.name;
+-- 2. (11) 고객의 이름과 고객이 구매한 도서 목록
+select customer.name as 이름, book.bookname as 도서이름
+from customer,orders,book 
+where customer.custid=orders.custid and book.bookid=orders.bookid;
+</code></pre></div></div>
+:ET

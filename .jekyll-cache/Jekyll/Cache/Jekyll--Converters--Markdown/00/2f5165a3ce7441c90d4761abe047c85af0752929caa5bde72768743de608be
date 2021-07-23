@@ -1,0 +1,35 @@
+I"�<blockquote>
+  <h1 id="원격제어">원격제어</h1>
+</blockquote>
+
+<ul>
+  <li>[selenium] chrome 91.0.x driver</li>
+</ul>
+
+<p><a href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a> 에서 다운로드 후</p>
+
+<p>본인의 anaconda base directory\driver 에 압축을 풀어 저장한다.</p>
+
+<blockquote>
+  <h1 id="selenium">Selenium</h1>
+</blockquote>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126756282-92525504-49f8-4be5-bcd4-77200764acac.png" alt="image" /></p>
+
+<blockquote>
+  <h1 id="step-3--python으로-코딩하기">step 3 : python으로 코딩하기</h1>
+</blockquote>
+
+<p>ex</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from bs4 import BeautifulSoup
+from selenium import webdriver
+
+chrome_driver = 'C:/py_data/driver/chromedriver.exe'
+browser = webdriver.Chrome(chrome_driver)
+
+browser.get('https://movie.daum.net/moviedb/grade?movieId=112938')
+</code></pre></div></div>
+
+<p>네이버 구매목록 주소 : <a href="https://order.pay.naver.com/home?tabMenu=SHOPPING">https://order.pay.naver.com/home?tabMenu=SHOPPING</a></p>
+
+:ET

@@ -1,0 +1,28 @@
+I"�<h1 id="문제">문제</h1>
+
+<p><strong>gapminder.tsv</strong></p>
+
+<ol>
+  <li>1952~2007년까지의 대한민국 평균 일인당 GDP를 계산하시오.</li>
+  <li>lifeExp(기대수명), gdpPercap 열의 평균값을 연도, 지역별로 그룹화하여 한 번에 계산하기</li>
+  <li>그룹화한 데이터의 개수 세기</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126757088-25f85e03-4a6d-45be-b49e-56791435103b.png" alt="image" /></p>
+
+<h1 id="결과">결과</h1>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126757222-f227c06f-ae07-4395-bbef-8eec7b869ae4.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/84369912/126757244-bb2d50dc-faeb-400f-982b-0e6645cee5d7.png" alt="image" /></p>
+
+<h1 id="코드">코드</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+df = pd.read_csv('./gapminder.tsv', sep='\t')
+df.describe()
+df
+df.isna().count()
+df['country'].unique()
+
+df[ (df['year']&gt;=1952) &amp; (df['year']&lt;=2007) &amp; (df['country']=='Korea, Rep.')]['gdpPercap'].mean()
+</code></pre></div></div>
+:ET

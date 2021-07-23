@@ -1,0 +1,104 @@
+I"n<h1 id="문제">문제</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import GridSearchCV
+
+# feature 데이터 셋과 Label 데이터 셋 추출. 
+titanic_df = pd.read_csv('./titanic_train.csv')
+y_titanic_df = titanic_df['Survived']
+X_titanic_df= titanic_df.drop('Survived',axis=1)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(titanic_df.info())
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126758029-e1aedaff-3ee7-40e1-9a43-6678c727d349.png" alt="image" /></p>
+
+<p>null 값의 존재를 확인</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 전처리 관련 함수
+
+# Null 처리 함수
+# Null 값 처리 -&gt; age : 평균
+# Cabin, Embarked : 'Null'
+def fillna(df):
+    df['Age'].fillna(df['Age'].mean(),inplace=True)
+    df['Cabin'].fillna('Null',inplace=True)
+    df['Embarked'].fillna('Null',inplace=True)
+    df['Fare'].fillna(0,inplace=True)
+    print('데이터 세트 Null 값 갯수 : ',df.isnull().sum().sum())
+    print('데이터 세트 Na 값 갯수 : ',df.isna().sum().sum())
+    return df
+
+# 머신러닝 알고리즘에 불필요한 속성 제거
+def drop_features(df):
+    df.drop(['PassengerId','Name','Ticket'],axis=1,inplace=True)
+    return df
+
+# 레이블 인코딩 수행. 
+# Cabin (선실)의 등급만을 표기 하기 위해 맨 앞의 알파벳만
+def format_features(df):
+    df['Cabin'] = df['Cabin'].str[:1]
+    features = ['Cabin','Sex','Embarked']
+    for feature in features:
+        le = LabelEncoder()
+        le = le.fit(df[feature])
+        df[feature] = le.transform(df[feature])
+    return df
+
+# 앞에서 설정한 Data Preprocessing 함수 호출
+def transform_features(df):
+    df = fillna(df)
+    df = drop_features(df)
+    df = format_features(df)
+    return df
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_titanic_df = transform_features(X_titanic_df)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126758062-00250815-1402-4ec6-8dc3-217b8b8c346f.png" alt="image" /></p>
+
+<p>전처리 완료</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 0.2 사이즈로 테스트 데이터 세트 추출
+X_train, X_test, y_train, y_test=train_test_split(X_titanic_df, y_titanic_df, \
+                                                  test_size=0.2, random_state=11)
+
+# 결정트리를 위한 사이킷런 Classifier 클래스 생성
+dt_clf = DecisionTreeClassifier(random_state=11)
+
+# DecisionTreeClassifier 학습/예측/평가
+dt_clf.fit(X_train , y_train)
+dt_pred = dt_clf.predict(X_test)
+print('DecisionTreeClassifier 정확도: {0:.4f}'.format(accuracy_score(y_test, dt_pred)))
+
+# cross validation score
+scores = cross_val_score(dt_clf, X_titanic_df , y_titanic_df , cv=5)
+for iter_count,accuracy in enumerate(scores):
+    print("교차 검증 {0} 정확도: {1:.4f}".format(iter_count, accuracy))
+print("평균 정확도: {0:.4f}".format(np.mean(scores)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126758136-94ab038e-0149-4cc2-bb55-a2c5615c2df2.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># grid search CV hyper parameter
+parameters = {'max_depth':[2,3,5,10],
+             'min_samples_split':[2,3,5], 'min_samples_leaf':[1,5,8]}
+
+grid_dclf = GridSearchCV(dt_clf , param_grid=parameters , scoring='accuracy' , cv=5)
+grid_dclf.fit(X_train , y_train)
+
+print('GridSearchCV 최적 하이퍼 파라미터 :',grid_dclf.best_params_)
+print('GridSearchCV 최고 정확도: {0:.4f}'.format(grid_dclf.best_score_))
+best_dclf = grid_dclf.best_estimator_
+
+# GridSearchCV의 최적 하이퍼 파라미터로 학습된 Estimator로 예측 및 평가 수행. 
+dpredictions = best_dclf.predict(X_test)
+accuracy = accuracy_score(y_test , dpredictions)
+print('테스트 세트에서의 DecisionTreeClassifier 정확도 : {0:.4f}'.format(accuracy))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126758177-53fc4ee0-c53a-452c-83e1-5eccc8f87996.png" alt="image" /></p>
+:ET

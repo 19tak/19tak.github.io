@@ -1,0 +1,17 @@
+I"�<blockquote>
+  <h1 id="원격제어">원격제어</h1>
+</blockquote>
+
+<ul>
+  <li>[selenium] chrome 91.0.x driver</li>
+</ul>
+
+<p><a href="https://chromedriver.chromium.org/downloads" title="chromium">chromium</a> 에서 다운로드 후</p>
+
+<p>본인의 anaconda base directory\driver 에 압축을 풀어 저장한다.</p>
+
+<blockquote>
+  <h1 id="selenium">Selenium</h1>
+</blockquote>
+
+:ET

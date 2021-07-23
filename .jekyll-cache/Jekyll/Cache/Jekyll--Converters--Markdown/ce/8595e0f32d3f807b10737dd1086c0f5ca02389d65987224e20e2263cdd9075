@@ -1,0 +1,73 @@
+I"
+<h1 id="문제">문제</h1>
+<p>https://openapi.naver.com/v1/search/news 네이버 뉴스 검색 open api를 통해 JSON 데이타를 가지고 와서
+뉴스 정보를 출력(원하는 정보 무엇이든) 하는 프로그램을 python으로 작성하시오.</p>
+
+<h1 id="코드">코드</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from selenium import webdriver
+import time
+from selenium.webdriver.common.keys import Keys
+import pyperclip
+from bs4 import BeautifulSoup as bs
+import pandas as pd
+import re
+import pandas as pd
+
+id = "id"
+pw = "pw"
+
+driver = webdriver.Chrome()
+driver.get("https://order.pay.naver.com/home?tabMenu=SHOPPING")
+time.sleep(1)
+
+naver_id = driver.find_element_by_id('id')
+naver_pw = driver.find_element_by_id('pw')
+naver_id.clear()
+time.sleep(1)
+
+# id 입력
+naver_id.click()
+pyperclip.copy(id)
+naver_id.send_keys(Keys.CONTROL, 'v')
+time.sleep(1)
+
+# 비밀번호 입력
+naver_pw.click()
+pyperclip.copy(pw)
+naver_pw.send_keys(Keys.CONTROL, 'v')
+time.sleep(1)
+
+login_btn =  driver.find_element_by_id('log.login')
+login_btn.click()
+
+html = driver.page_source
+soup = bs(html, 'html.parser')
+# soup.text
+
+# 
+shop_list = soup.select(".goods_info &gt; .goods &gt; .name")
+product_list = []
+
+for product in shop_list:
+    product_list.append(product.text)
+
+# tap, enter key 제거
+for index, product in enumerate(product_list):
+    param = product.replace("\t","")
+    param = param.replace("\n","")
+    product_list[index] = param
+
+# 정규식 이용 - "네이버플러스 멤버십" 제거
+for index, product in enumerate(product_list):
+    product_name = re.sub('네이버플러스 멤버십', '', product)
+    product_list[index] = product_name
+    
+# 데이터 프레임으로 만들어주기
+my_product = pd.DataFrame({'상품명' : product_list})
+my_product
+
+driver.quit() # driver 종료, 브라우저 닫기
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126756581-de6e557d-250f-4139-a360-fc8286ba78a8.png" alt="image" /></p>
+:ET

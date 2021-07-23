@@ -1,0 +1,48 @@
+I"<h1 id="문제">문제</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import seaborn as sns
+sns.set(style='whitegrid')
+
+mpg = sns.load_dataset('mpg')
+mpg.head(3)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760147-f7e72759-c61c-47c9-acc4-c9985d375d86.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.relplot(x='horsepower', y='mpg', hue='origin', size='acceleration',
+           sizes=(40,220), alpha=.7, palette='muted', height=6, data=mpg)
+plt.show()
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760192-9ac90468-8ce2-4ba2-96d5-1839b43523c1.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.relplot(x='horsepower', y='mpg', hue='origin', size='acceleration',
+           sizes=(40,220), col='origin', alpha=.7, palette='muted', height=6, data=mpg)
+plt.show()
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760234-c59b3a03-ddfe-4c1b-bed1-005f67974541.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.relplot(x='horsepower', y='mpg', hue='cylinders', size='acceleration',
+           sizes=(40,220), alpha=.45, palette='muted', height=6, data=mpg)
+plt.show()
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760268-614782f5-4fb1-4f5c-aa69-120f8fc5e37b.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.relplot(x='horsepower', y='mpg', hue='cylinders', size='acceleration',
+           sizes=(40,220), col='origin', alpha=.7, palette='muted', height=6, data=mpg)
+plt.show()
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760307-40ab4d4b-c7e9-4132-a61c-f364fdec969d.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.relplot(x='horsepower', y='mpg', hue='origin', size='weight',
+           sizes=(40,220), alpha=.45, palette='muted', height=6, data=mpg)
+plt.show()
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760347-9b4dacb9-a7d8-4fa9-980b-3d63b658e8a5.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.relplot(x='horsepower', y='mpg', hue='origin', size='weight',
+           sizes=(40,220), col='origin', alpha=.45, palette='muted', height=6, data=mpg)
+plt.show()
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126760391-9b3b8c04-34f9-4cec-a088-1937f0377be3.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+:ET

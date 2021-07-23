@@ -1,0 +1,14 @@
+I"B<h2 id="문제">문제</h2>
+<p>files = [‘font’, ‘1.png’, ‘10.jpg’, ‘11.gif’, ‘2.jpg’, ‘3.png’, ‘table.xslx’, ‘spec.docx’]</p>
+
+<p>​</p>
+
+<p>다음 files 데이터에서 확장자가 *.jpg, *.png인 이미지 파일만 출력하는 프로그램을 1) 일반함수, 2) 람다표현식을 활용해 프로그래밍 하시오.</p>
+
+<p>​</p>
+
+<p>힌트) list(), filter(), find()</p>
+
+<h2 id="답안">답안</h2>
+<p><img src="https://user-images.githubusercontent.com/84369912/126753554-43bcaa52-e79a-4f7a-a51f-62266f9554c7.png" alt="image" /></p>
+:ET
