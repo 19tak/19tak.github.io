@@ -1,0 +1,103 @@
+I"�<h4 id="2021년-4월-26일">2021년 4월 26일</h4>
+<p>내가 지금 수강중인 <strong>한국품질재단 KFQ 취업지원센터의 인공지능 개발자 교육과정</strong> 이 시작한 날이다. <br />
+나는 상반기 취업활동을 마무리하고 일주일 늦게 추가모집으로 들어가서 혼자 독학을 통해 밀린 과제부터 진행을 하였다. <br />
+해당 과정은 6개월간 진행 중이고, 현재는 코로나 4단계로 비대면 수업이 진행중이어서 <br />
+이동시간이 절약되어 그동안 카페에 제출한 과제를 하나씩 옮기며, 복습을 하려한다.<br /></p>
+
+<h4 id="ai-개발자-교육과정">AI 개발자 교육과정</h4>
+<p>해당 과정에서는 크게 두 가지를 배워가고 있는 것 같다.</p>
+<ul>
+  <li><strong>데이터 분석</strong> 기반의 AI, 딥러닝, 머신러닝 등.</li>
+  <li>생산물을 보여줄 <strong>웹</strong> 사이트 개발.</li>
+</ul>
+
+<p>제목에 R이 붙어있는 것은 R을 사용하여 진행한 프로젝트나 과제가 될 것이다.<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">jeju.txt</code> 파일은 강사님이 준비해주신 <strong>제주도 여행코스</strong> 포스팅 게시글로 보인다. <br />
+n일차에 어떤 코스로 가는 것이 좋겠다. 하는 식의 내용으로 채워져있다. <br />
+<code class="language-plaintext highlighter-rouge">제주도여행지.txt</code> 파일은 제주도의 여행지들이 적혀있는 파일이다. <strong>한라산, 해수욕장 등</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">jeju.txt</code>에서 자주 언급 되는 <strong>제주도 여행지</strong> 들을 언급 횟수 순으로 <strong>크기</strong> 와 <strong>색</strong> 을 다르게하여 <strong>워드클라우드</strong> 로 보여주는 것이 과제에서 원하는 결과물이다.<br />
+<br /><br /></p>
+
+<h2 id="텍스트마이닝">텍스트마이닝</h2>
+<blockquote>
+
+  <p><br /></p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setting
+rm(list=ls())
+getwd()
+setwd("D:\\tak\\r\\hw\\dplyr")
+
+# import library
+library(dplyr)
+library(ggplot2)
+
+# read data
+midwest &lt;- as.data.frame(ggplot2::midwest)
+
+# Q1. 전체 인구 대비 미성년 인구 백분율 변수 추가
+# df에 value(백분율) 추가
+midwest &lt;- 
+  midwest %&gt;% 
+  mutate(value=(poptotal-popadults)/poptotal*100)
+
+# Q2. value 상위 5개 county의 value 출력
+midwest %&gt;% 
+  arrange(desc(value)) %&gt;% 
+  select(county,value) %&gt;% 
+  head
+
+# Q3. 미성년 비율 등급 변수 추가, 각 등급에 몇개의 지역이 있는지 출력
+# value 별 grade 추가
+midwest  &lt;-
+  midwest %&gt;% 
+  mutate(grade=ifelse(value&gt;=40,"large",
+                      ifelse(value&gt;=30,"middle","small")))
+n &lt;- midwest %&gt;%  group_by(grade) %&gt;% summarise(n=n())
+as.data.frame(n)
+
+# Q4. 전체 인구 대비 아시아인 인구 백분율 변수 추가, 하위 10개 지역 state, county 백분율 출력
+# df에 asian_value(백분율) 추가 / 하위 10개 지역 해당 항목 출력
+midwest %&gt;% 
+  mutate(asian_value=popasian/poptotal*100) %&gt;% 
+  arrange(asian_value) %&gt;% 
+  select(state,county,asian_value) %&gt;% 
+  head(10)
+</code></pre></div>  </div>
+  <p><img src="https://user-images.githubusercontent.com/84369912/126744962-46853a86-d8ff-4e89-9b92-be3fa253823d.png" alt="image" /></p>
+
+  <p><br />
+열심히 코드 한줄 한줄 설명 달다가 아닌것 같아서 지웠다. 필요한 것만 조금 써둬야겠다.</p>
+
+  <p><br /></p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setting
+rm(list=ls())
+getwd()
+setwd("D:\\tak\\r\\hw\\jeju\\text_mining_jeju")  
+</code></pre></div>  </div>
+
+  <p><code class="language-plaintext highlighter-rouge">rm(list=ls())</code>는 저장된 모든 변수 및 오브젝트를 삭제하는 것. 즉 <strong>리셋</strong> 이라고 생각하면된다.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">getwd()</code>는 현재 디렉토리가 어디인지, <code class="language-plaintext highlighter-rouge">setwd(~)</code>는 새로 설정하는 디렉토리이다.</p>
+
+  <p><br /></p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># import library
+library(dplyr)
+library(KoNLP)
+library(wordcloud)
+library(RColorBrewer)
+</code></pre></div>  </div>
+
+  <p><code class="language-plaintext highlighter-rouge">library(dplyr)</code>는 <strong>데이터 처리</strong> 에 특화된 <strong>R 패키지</strong> 이다. R에서 필수급.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">library(KoNLP)</code>는 <strong>한국어 정보처리</strong> 를 위한 <strong>파이썬</strong> 패키지이다.</p>
+
+  <p>R에서도 사용할 수 있게 라이브러리를 제공하고 있으며, 이 친구로 <strong>텍스트 마이닝</strong> 을 진행한다고 생각하자.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">library(wordcloud)</code>는 워드클라우드를 그릴 수 있는 라이브러리, <code class="language-plaintext highlighter-rouge">library(RColorBrewer)</code>는 사용할 색상을 다루는 라이브러리이다.</p>
+</blockquote>
+
+<p>오랜만에 보는데 어떻게 했나 싶기도 하고, 새로운 것을 습득하는 것도 중요하지만, <br />
+습득했던 것을 기억하고, 잘 사용할 줄 아는 것도 중요하다고 다시금 느낀다.</p>
+:ET

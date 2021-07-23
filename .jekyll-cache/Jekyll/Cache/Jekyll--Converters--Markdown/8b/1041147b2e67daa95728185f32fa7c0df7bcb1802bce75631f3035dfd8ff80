@@ -1,0 +1,24 @@
+I"6<h4 id="dplyr">dplyr</h4>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126750656-55536af4-e18c-4c7a-9bf9-7179b92db322.png" alt="image" /></p>
+
+<h2 id="코드">코드</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setting
+rm(list=ls())
+getwd()
+setwd("D:\\tak\\r\\doit_book\\ml\\machinelearning")
+
+#install.packages("randomForest")
+library(randomForest)
+data(iris)
+rf &lt;- randomForest(Species~.,data=iris)
+rf
+
+# 포뮬로 방식 대신 변수를 직접 지정하는 방식이 메모리를 적게 사용해 속도가 빠름
+rf2 &lt;- randomForest(iris[,1:4],iris[,5])
+# 변수의 중요도 평가
+rf3 &lt;- randomForest(Species~.,data=iris,importance=TRUE)
+importance(rf3)
+varImpPlot(rf3,main="varImpPlot of iris")
+</code></pre></div></div>
+:ET

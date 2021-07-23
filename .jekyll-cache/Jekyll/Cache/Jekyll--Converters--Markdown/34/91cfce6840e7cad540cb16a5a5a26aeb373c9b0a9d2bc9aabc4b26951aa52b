@@ -1,0 +1,48 @@
+I"�<h4 id="dplyr">dplyr</h4>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126750656-55536af4-e18c-4c7a-9bf9-7179b92db322.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/84369912/126750681-cbfc435d-be64-46c7-b94f-1d0e9672e85e.png" alt="image" /></p>
+
+<p>OOB 4%</p>
+
+<p>정확도에서는 Petal.Length &gt; Petal.Width &gt; Sepal.Length &gt; Sepal.Width 순으로 중요변수</p>
+
+<p>노드 불순도에서는 Petal.Width &gt; Petal.Length &gt; Sepal.Length &gt; Sepal.Width 순으로 중요변수</p>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126750717-1a890a1d-f8a2-4f46-b175-56626bfeeab5.png" alt="image" /></p>
+
+<h2 id="코드">코드</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setting
+rm(list=ls())
+getwd()
+setwd("D:\\tak\\r\\doit_book\\ml\\machinelearning")
+
+# library
+library(cluster)
+library(graphics)
+
+# read data
+academy &lt;- read.csv("academy.csv")
+head(academy)
+
+#계층형 군집
+hcl &lt;- hclust(dist(academy)^2,method="single")
+plot(hcl,hang=-1,xlab="student",ylab="distance")
+## 약 5~6개의 군집 확인가능
+
+#k-means 군집 5개
+kms &lt;- kmeans(academy,5); kms
+plot(academy,col=kms$cluster)
+
+# elbow point 구하기
+wss &lt;- 0
+#k를 1~10 변화시키며 각 withinss 값을 wss에 저장
+for(i in 1:10) wss[i] &lt;- sum(kmeans(academy,centers=i)$withinss)
+plot(1:10,wss,type="b",xlab="Number of Clusters",ylab="within group sum of squares")
+## number of cluster가 6인 지점 부근이 elbow point임을 확인
+
+#k-means 군집 6개
+kms &lt;- kmeans(academy,6); kms
+plot(academy,col=kms$cluster)
+</code></pre></div></div>
+:ET

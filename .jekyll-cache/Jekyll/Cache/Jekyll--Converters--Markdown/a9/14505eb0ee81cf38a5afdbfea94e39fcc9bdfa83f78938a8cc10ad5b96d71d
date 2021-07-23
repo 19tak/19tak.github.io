@@ -1,0 +1,52 @@
+I"�	<h4 id="dplyr">dplyr</h4>
+
+<h1 id="문제"><strong>문제</strong></h1>
+<h3 id="분석-도전">분석 도전</h3>
+<p>미국 동북중부 437개 지역의 인구통계 정보를 담고 있는 midwest 데이터를 사용해 데이터 분석 문제를 해결해 보세요.  <br />
+midwest는 ggplot2 패키지에 들어 있습니다.</p>
+<ul>
+  <li><strong>문제1.</strong> popadults는 해당 지역의 성인 인구, poptotal은 전체 인구를 나타냅니다. midwest 데이터에 ‘전체 인구 대비 미성년 인구 백분율’ 변수를 추가하세요.</li>
+  <li><strong>문제2.</strong> 미성년 인구 백분율이 가장 높은 상위 5개 county(지역)의 미성년 인구 백분율을 출력하세요.</li>
+  <li><strong>문제3.</strong> 분류표의 기준에 따라 미성년 비율 등급 변수를 추가하고, 각 등급에 몇 개의 지역이 있는지 알아보세요.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126747506-8ae34da4-a3f7-47a5-b14c-b21bce1d81df.png" alt="image" /></p>
+
+<ul>
+  <li><strong>문제4.</strong> popasian은 해당 지역의 아시아인 인구를 나타냅니다. ‘전체 인구 대비 아시아인 인구 백분율’ 변수를 추가하고, <br />
+하위 10개 지역의 state(주), county(지역명), 아시아인 인구 백분율을 출력하세요.</li>
+</ul>
+
+<h3 id="실행-코드">실행 코드</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setting
+rm(list=ls())
+getwd()
+setwd("D:\\tak\\r\\doit_book\\ml\\machinelearning")
+
+# iris data로
+data(iris)
+head(iris)
+str(iris)
+result &lt;- lm(Petal.Length~Petal.Width,iris)
+summary(result)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Call:
+lm(formula = Petal.Length ~ Petal.Width, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.33542 -0.30347 -0.02955  0.25776  1.39453 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.08356    0.07297   14.85   &lt;2e-16 ***
+Petal.Width  2.22994    0.05140   43.39   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4782 on 148 degrees of freedom
+Multiple R-squared:  0.9271,	Adjusted R-squared:  0.9266 
+F-statistic:  1882 on 1 and 148 DF,  p-value: &lt; 2.2e-16
+</code></pre></div></div>
+:ET
