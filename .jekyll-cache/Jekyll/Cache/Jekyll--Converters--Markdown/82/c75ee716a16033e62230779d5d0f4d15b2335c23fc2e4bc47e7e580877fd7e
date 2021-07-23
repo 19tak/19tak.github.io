@@ -1,0 +1,29 @@
+I"�<h2 id="문제">문제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>files = ['font', '1.png', '10.jpg', '11.gif', '2.jpg', '3.png', 'table.xslx', 'spec.docx']
+</code></pre></div></div>
+
+<p>다음 files 데이터에서 확장자가 *.jpg, *.png인 이미지 파일만 출력하는 프로그램을 1) 일반함수, 2) 람다표현식을 활용해 프로그래밍 하시오.
+힌트) list(), filter(), find()</p>
+
+<h2 id="답안">답안</h2>
+<p><img src="https://user-images.githubusercontent.com/84369912/126753668-8cec7840-9d07-4380-a555-6a85f2ebc687.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>files=['font','1.png','10.jpg','11.gif','2.jpg','3.png','table.xslx','spec.docx']
+extract = list(filter(lambda x: '.png' in x, files)) + list(filter(lambda x: '.jpg' in x, files))
+print(extract)
+
+def extract2(args):
+    ans=[]
+    for arg in args:
+        if '.png' in arg or '.jpg' in arg:
+            ans.append(arg)
+    print(ans)
+
+extract2(files)
+</code></pre></div></div>
+
+<h2 id="생각">생각</h2>
+
+<p><br /><br /><br /><br /><br /><br />
+제출일 : 06월 08일</p>
+:ET

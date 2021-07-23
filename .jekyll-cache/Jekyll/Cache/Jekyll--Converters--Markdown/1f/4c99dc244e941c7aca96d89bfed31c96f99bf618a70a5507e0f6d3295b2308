@@ -1,0 +1,45 @@
+I"<h2 id="문제">문제</h2>
+<p>학생의 <strong>학번</strong>, <strong>이름</strong>, <strong>국영수</strong> 점수와 <strong>총점</strong>이 차례대로 나오도록 함수를 작성하여라.</p>
+
+<p><br /><br /><br /><br /><br /><br /></p>
+
+<h2 id="답안">답안</h2>
+<p><img src="https://user-images.githubusercontent.com/84369912/126753998-0d66d04d-f606-401e-8c3e-6394834a104b.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/84369912/126754020-4f9461d7-0faf-4aca-9499-4b4d110c4311.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Student:
+    stu_num=0
+    def __init__(self,name,kor,eng,math):
+        self.name=name
+        self.kor=kor
+        self.eng=eng
+        self.math=math
+        self.tot_score=kor+eng+math
+        Student.stu_num +=1
+        
+    def display(self):
+        print("학번 : ",Student.stu_num)
+        print("이름 : ",self.name)
+        print("국어 : ",self.kor)
+        print("영어 : ",self.eng)
+        print("수학 : ",self.math)
+        print("총점 : ",self.tot_score,"\n")
+        
+stu1=Student("홍길동",25,34,56)
+stu1.display()
+
+stu2=Student("김길동",56,78,34)
+stu2.display()
+
+stu3=Student("이길동",78,56,78)
+stu3.display()
+</code></pre></div></div>
+
+<p><br /><br /><br /><br /><br /><br /></p>
+
+<h2 id="생각">생각</h2>
+<p>객체 설계에 대해서 뭔가를 더 깨닫게 된 과제이다.</p>
+
+<p><br /><br /><br /><br /><br /><br />
+제출일 : 06월 09일</p>
+:ET

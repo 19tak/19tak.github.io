@@ -1,0 +1,19 @@
+I"�<h2 id="문제">문제</h2>
+<p>학생들의 점수가 적힌 데이터에서 최고 점수를 찾는 함수를 
+korean, english, mathematics, science = 100, 86, 81, 91 <br />
+                                             …</p>
+
+<p>​</p>
+
+<p>max_score = get_max_score(korean, english, mathematics, science)
+​print(‘높은 점수:’, max_score) <br />
+max_score = get_max_score(english, science) 
+print(‘높은 점수:’, max_score)</p>
+
+<h2 id="답안">답안</h2>
+<p><img src="https://user-images.githubusercontent.com/84369912/126753554-43bcaa52-e79a-4f7a-a51f-62266f9554c7.png" alt="image" /></p>
+
+<h2 id="생각">생각</h2>
+
+<p>제출일 : 06월 08일</p>
+:ET
