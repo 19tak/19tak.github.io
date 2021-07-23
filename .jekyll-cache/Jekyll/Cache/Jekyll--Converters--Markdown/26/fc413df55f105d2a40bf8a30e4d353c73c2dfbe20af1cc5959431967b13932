@@ -1,0 +1,23 @@
+I"<h1 id="문제">문제</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.datasets import fetch_20newsgroups
+
+news_data = fetch_20newsgroups(subset='all',random_state=156)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(news_data.keys())
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768709-2415fd30-97ef-4dbb-9836-6815c0a5cec0.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+
+print('target 클래스의 값과 분포도 \n',pd.Series(news_data.target).value_counts().sort_index())
+print('target 클래스의 이름들 \n',news_data.target_names)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768744-01f2890e-9f76-40b2-9477-64352463e5e2.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(news_data.data[0])
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768776-678b8ee3-b69e-4dd4-a67a-6516c2e622b9.png" alt="image" /></p>
+
+:ET

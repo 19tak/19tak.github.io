@@ -1,0 +1,51 @@
+I"e<h1 id="문제">문제</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.datasets import fetch_20newsgroups
+
+news_data = fetch_20newsgroups(subset='all',random_state=156)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(news_data.keys())
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768709-2415fd30-97ef-4dbb-9836-6815c0a5cec0.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+
+print('target 클래스의 값과 분포도 \n',pd.Series(news_data.target).value_counts().sort_index())
+print('target 클래스의 이름들 \n',news_data.target_names)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768744-01f2890e-9f76-40b2-9477-64352463e5e2.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(news_data.data[0])
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768776-678b8ee3-b69e-4dd4-a67a-6516c2e622b9.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.datasets import fetch_20newsgroups
+
+# subset='train'으로 학습용(Train) 데이터만 추출, remove=('headers', 'footers', 'quotes')로 내용만 추출
+train_news= fetch_20newsgroups(subset='train', remove=('headers', 'footers', 'quotes'), random_state=156)
+X_train = train_news.data
+y_train = train_news.target
+print(type(X_train))
+
+# subset='test'으로 테스트(Test) 데이터만 추출, remove=('headers', 'footers', 'quotes')로 내용만 추출
+test_news= fetch_20newsgroups(subset='test',remove=('headers', 'footers','quotes'),random_state=156)
+X_test = test_news.data
+y_test = test_news.target
+print('학습 데이터 크기 {0} , 테스트 데이터 크기 {1}'.format(len(train_news.data) , len(test_news.data)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768816-177d8b9f-bc03-4a52-8de0-12747a565f2f.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.feature_extraction.text import CountVectorizer
+
+# Count Vectorization으로 feature extraction 변환 수행. 
+cnt_vect = CountVectorizer()
+cnt_vect.fit(X_train , y_train)
+X_train_cnt_vect = cnt_vect.transform(X_train)
+
+# 학습 데이터로 fit( )된 CountVectorizer를 이용하여 테스트 데이터를 feature extraction 변환 수행. 
+X_test_cnt_vect = cnt_vect.transform(X_test)
+
+print('학습 데이터 Text의 CountVectorizer Shape:',X_train_cnt_vect.shape)
+</code></pre></div></div>
+:ET

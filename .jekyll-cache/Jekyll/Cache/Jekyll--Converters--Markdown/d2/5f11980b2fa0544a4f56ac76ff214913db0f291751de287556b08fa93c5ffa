@@ -1,0 +1,27 @@
+I"@<h1 id="문제">문제</h1>
+
+<p>그동안 읽어오던 csv 파일과는 다르게 해당 data set은 많은 수의 feature와 데이터들로 이루어져서 파일이 나뉘어져있다.</p>
+
+<p>​features.txt 에는 중복을 포함한 561개의 feature에 대한 index와 name이
+_text.tx, _train.txt 에는 각 feature에 대한 data들의 test, train split이 담겨져있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+# features.txt 파일에는 피처 이름 index와 피처명이 공백으로 분리되어 있음. 이를 DataFrame으로 로드.
+feature_name_df = pd.read_csv('./human_activity/features.txt',sep='\s+',
+                        header=None,names=['column_index','column_name'])
+
+# 피처명 index를 제거하고, 피처명만 리스트 객체로 생성한 뒤 샘플로 10개만 추출
+feature_name = feature_name_df.iloc[:, 1].values.tolist()
+print('전체 피처명에서 10개만 추출:', feature_name[:10])
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126767492-c04d488e-e2a8-4844-bf71-23afefa70a85.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>feature_dup_df = feature_name_df.groupby('column_name').count()
+feature_name_df.groupby('column_name').count()
+print(feature_dup_df[feature_dup_df['column_index']&gt;1].count())
+feature_dup_df[feature_dup_df['column_index']&gt;1].head()
+</code></pre></div></div>
+:ET

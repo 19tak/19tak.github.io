@@ -1,0 +1,8 @@
+I"<h1 id="문제">문제</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.datasets import fetch_20newsgroups
+
+news_data = fetch_20newsgroups(subset='all',random_state=156)
+</code></pre></div></div>
+
+:ET

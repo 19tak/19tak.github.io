@@ -1,0 +1,108 @@
+I"�<h1 id="문제">문제</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.datasets import fetch_20newsgroups
+
+news_data = fetch_20newsgroups(subset='all',random_state=156)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(news_data.keys())
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768709-2415fd30-97ef-4dbb-9836-6815c0a5cec0.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+
+print('target 클래스의 값과 분포도 \n',pd.Series(news_data.target).value_counts().sort_index())
+print('target 클래스의 이름들 \n',news_data.target_names)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768744-01f2890e-9f76-40b2-9477-64352463e5e2.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(news_data.data[0])
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768776-678b8ee3-b69e-4dd4-a67a-6516c2e622b9.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.datasets import fetch_20newsgroups
+
+# subset='train'으로 학습용(Train) 데이터만 추출, remove=('headers', 'footers', 'quotes')로 내용만 추출
+train_news= fetch_20newsgroups(subset='train', remove=('headers', 'footers', 'quotes'), random_state=156)
+X_train = train_news.data
+y_train = train_news.target
+print(type(X_train))
+
+# subset='test'으로 테스트(Test) 데이터만 추출, remove=('headers', 'footers', 'quotes')로 내용만 추출
+test_news= fetch_20newsgroups(subset='test',remove=('headers', 'footers','quotes'),random_state=156)
+X_test = test_news.data
+y_test = test_news.target
+print('학습 데이터 크기 {0} , 테스트 데이터 크기 {1}'.format(len(train_news.data) , len(test_news.data)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768816-177d8b9f-bc03-4a52-8de0-12747a565f2f.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.feature_extraction.text import CountVectorizer
+
+# Count Vectorization으로 feature extraction 변환 수행. 
+cnt_vect = CountVectorizer()
+cnt_vect.fit(X_train , y_train)
+X_train_cnt_vect = cnt_vect.transform(X_train)
+
+# 학습 데이터로 fit( )된 CountVectorizer를 이용하여 테스트 데이터를 feature extraction 변환 수행. 
+X_test_cnt_vect = cnt_vect.transform(X_test)
+
+print('학습 데이터 Text의 CountVectorizer Shape:',X_train_cnt_vect.shape)
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768847-6eb7fcda-9144-47c6-bfbe-42530b76b5f6.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+# LogisticRegression을 이용하여 학습/예측/평가 수행. 
+lr_clf = LogisticRegression()
+lr_clf.fit(X_train_cnt_vect , y_train)
+pred = lr_clf.predict(X_test_cnt_vect)
+print('CountVectorized Logistic Regression 의 예측 정확도는 {0:.3f}'.format(accuracy_score(y_test,pred)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768876-7b354f66-cb1e-4085-afe8-912f6bae7632.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.feature_extraction.text import TfidfVectorizer
+
+# TF-IDF Vectorization 적용하여 학습 데이터셋과 테스트 데이터 셋 변환. 
+tfidf_vect = TfidfVectorizer()
+tfidf_vect.fit(X_train)
+X_train_tfidf_vect = tfidf_vect.transform(X_train)
+X_test_tfidf_vect = tfidf_vect.transform(X_test)
+
+# LogisticRegression을 이용하여 학습/예측/평가 수행. 
+lr_clf = LogisticRegression()
+lr_clf.fit(X_train_tfidf_vect , y_train)
+pred = lr_clf.predict(X_test_tfidf_vect)
+print('TF-IDF Logistic Regression 의 예측 정확도는 {0:.3f}'.format(accuracy_score(y_test ,pred)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768915-8c9fdd06-277b-46f4-84e0-ce56a2729caf.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># stop words 필터링을 추가하고 ngram을 기본(1,1)에서 (1,2)로 변경하여 Feature Vectorization 적용.
+tfidf_vect = TfidfVectorizer(stop_words='english', ngram_range=(1,2), max_df=300 )
+tfidf_vect.fit(X_train)
+X_train_tfidf_vect = tfidf_vect.transform(X_train)
+X_test_tfidf_vect = tfidf_vect.transform(X_test)
+
+lr_clf = LogisticRegression()
+lr_clf.fit(X_train_tfidf_vect , y_train)
+pred = lr_clf.predict(X_test_tfidf_vect)
+print('TF-IDF Vectorized Logistic Regression 의 예측 정확도는 {0:.3f}'.format(accuracy_score(y_test ,pred)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126768956-512a7144-ba16-475e-89b5-0930e3845bba.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.model_selection import GridSearchCV
+
+# 최적 C 값 도출 튜닝 수행. CV는 3 Fold셋으로 설정. 
+params = { 'C':[0.01, 0.1, 1, 5, 10]}
+grid_cv_lr = GridSearchCV(lr_clf ,param_grid=params , cv=3 , scoring='accuracy' , verbose=1 )
+grid_cv_lr.fit(X_train_tfidf_vect , y_train)
+print('Logistic Regression best C parameter :',grid_cv_lr.best_params_ )
+
+# 최적 C 값으로 학습된 grid_cv로 예측 수행하고 정확도 평가. 
+pred = grid_cv_lr.predict(X_test_tfidf_vect)
+print('TF-IDF Vectorized Logistic Regression 의 예측 정확도는 {0:.3f}'.format(accuracy_score(y_test ,pred)))
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126769004-276d92f9-c70f-4ad8-bf82-207233bc5da7.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+:ET

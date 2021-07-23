@@ -1,9 +1,0 @@
-I"�<h1 id="문제">문제</h1>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import seaborn as sns
-sns.set(style='whitegrid')
-
-mpg = sns.load_dataset('mpg')
-mpg.head(3)
-</code></pre></div></div>
-:ET
