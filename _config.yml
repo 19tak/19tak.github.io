@@ -15,12 +15,13 @@ timezone: Asia/Seoul
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: test                          # the main title
+title: 19Tak                          # the main title
 
-tagline: TEST   # it will display as the sub-title
+tagline: Dream Comes True   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  TEST
+  공학자, 개발자, 그리고 래퍼가 모두 되고 싶은 꿈 많은 청년이다.
+  취미는 게임, 요리, 작사이다.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://19tak.github.io'
@@ -28,19 +29,27 @@ url: 'https://19tak.github.io'
 github:
   username: 19tak             # change to your github username
 
-twitter:
-  username: twitter_username            # change to your twitter username
+instagram:
+  username: taaaktaaaak             # change to your instagram username
+
+youtube:
+  username: 19tak             # change to your youtube username
+
+# twitter:
+#   username: twitter_username            # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: TEST
-  email: example@doamin.com             # change to your email address
+  name: 19tak
+  email: wjdxkrdl123@naver.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    - https://github.com/19tak       # change to your github homepage
+    - https://instagram.com/taaaktaaaak       # change to your github homepage
+    - https://www.youtube.com       # change to your github homepage
     # Uncomment below to add more social links
+    # - https://twitter.com/username      # change to your twitter homepage
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
