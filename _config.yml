@@ -33,7 +33,7 @@ instagram:
   username: taaaktaaaak            # change to your instagram username
 
 youtube:
-  username: youtube_username            # change to your youtube username
+  username: UCse2sGik0zU4fVNZyDjhcOQ            # change to your youtube username
   
 # twitter:
 #   username: twitter_username            # change to your twitter username
@@ -47,7 +47,7 @@ social:
     # The first element serves as the copyright owner's link
     - https://github.com/19tak       # change to your github homepage
     - https://instagram.com/taaaktaaaak       # change to your instagram homepage
-    - https://youtube.com       # change to your youtube homepage
+    - https://www.youtube.com/channel/UCse2sGik0zU4fVNZyDjhcOQ       # change to your youtube homepage
     # Uncomment below to add more social links
     # - https://twitter.com/username      # change to your twitter homepage
     # - https://www.facebook.com/username
