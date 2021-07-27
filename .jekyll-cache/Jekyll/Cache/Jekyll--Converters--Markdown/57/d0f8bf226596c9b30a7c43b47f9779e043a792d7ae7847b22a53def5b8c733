@@ -1,0 +1,27 @@
+I"4<h1 id="문제">문제</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#pip install wordcloud
+
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt  #한글글자체 정보가 없어서 한글이 깨져서나옴
+#해결 Font정보 c:\windows\fonts 모든 글자체정보가 존재
+#이 글자체 정보파일이 있는 경로(path)정보를 환경설정정보로 
+#matplotlib에 전달만 해주면 출력가능
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126769288-b934f9db-1923-4fa1-9375-89d0e9570aed.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+
+myWC = WordCloud(font_path = 'C:\Windows\Fonts\HMKMMAG.TTF', \
+                 background_color='white',\
+                colormap = "Accent_r",\
+                width=1500, height=1500).generate_from_frequencies(word_dic)
+plt.figure(figsize=(10,10))
+plt.imshow(myWC, interpolation = 'bilinear')
+plt.axis('off')
+plt.show
+</code></pre></div></div>
+<p><img src="https://user-images.githubusercontent.com/84369912/126769333-be971602-f565-47a9-ac89-0631acf0729b.png" alt="image" /></p>
+:ET

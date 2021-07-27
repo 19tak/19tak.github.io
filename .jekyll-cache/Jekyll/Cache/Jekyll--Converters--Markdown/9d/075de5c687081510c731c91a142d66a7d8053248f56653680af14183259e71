@@ -1,0 +1,45 @@
+I"$
+<h1 id="오류-메세지">오류 메세지</h1>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/127119053-01eadd65-4abd-469e-b914-23c958c49dfd.png" alt="image" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source : 'source' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 
+이름이 정확한지 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
+위치 줄:1 문자:1
++ source "c:/&lt;파이썬 가상환경 경로&gt;/Scripts/activat ...
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (source:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+</code></pre></div></div>
+
+<p>이와 유사한 오류 메세지로 다음과 같은 경우도 존재한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'git' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 
+이름이 정확한지 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
+위치 줄:1 문자:1
++ git init
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (git:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+</code></pre></div></div>
+
+<h1 id="원인">원인</h1>
+
+<p>Visual Studio Code의 기본 터미널이 Windows의 <strong><code class="language-plaintext highlighter-rouge">Power Shell</code></strong>로 설정되어 있기 때문이라고 한다.</p>
+
+<p>본인은 설정을 바꾸다보니 해결이 되는 것 같다.</p>
+
+<h1 id="해결-방법">해결 방법</h1>
+
+<p>VSC의 기본 터미널을 <strong><code class="language-plaintext highlighter-rouge">cmd</code></strong> 또는 <strong><code class="language-plaintext highlighter-rouge">Git Bash</code></strong>로 변경한다.</p>
+
+<ol>
+  <li>
+    <p>VSC에서 <strong><code class="language-plaintext highlighter-rouge">Ctrl + ,</code></strong> 또는 <strong><code class="language-plaintext highlighter-rouge">파일 - 기본설정 - 설정</code></strong> 으로 설정 창에 진입한다.</p>
+  </li>
+  <li>
+    <p>설정 검색 칸에 windows shell을 검색하고 기본 터미널 설정을 변경한다.</p>
+  </li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/127120626-7ae16d40-a629-4dd6-a4e2-946cba067fbf.png" alt="image" /></p>
+:ET

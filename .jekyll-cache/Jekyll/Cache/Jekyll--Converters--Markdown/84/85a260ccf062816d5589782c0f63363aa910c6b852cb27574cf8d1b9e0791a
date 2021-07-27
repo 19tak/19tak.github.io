@@ -1,0 +1,31 @@
+I"=<h4 id="dplyr">dplyr</h4>
+
+<p><img src="https://user-images.githubusercontent.com/84369912/126751436-a580008f-dd3c-4d6d-ac46-f7c8397966e1.png" alt="image" /></p>
+
+<h2 id="코드">코드</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># setting
+rm(list=ls())
+getwd()
+setwd("D:\\tak\\r\\doit_book\\ml\\machinelearning")
+
+# library
+library(ggplot2)
+
+data(iris)
+# 그래프를 g에 할당 
+g &lt;- ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point(colour = c("purple", "blue", "green")[iris$Species], 
+             pch = c(0, 2, 20)[iris$Species], 
+             size = c(1, 1.5, 2)[iris$Species])
+
+g + 
+  annotate(geom = "text", 
+           x = iris$Sepal.Length, 
+           y = iris$Sepal.Width, 
+           label = rownames(iris), 
+           colour = "brown", 
+           alpha = 0.7, size = 3, hjust = 0.5, vjust = -1) +
+  labs(title = "ggplot", subtitle = "iris Sepal.Length vs Sepal.Width", 
+       caption = "한정탁", x = "Sepal.Length", y = "Sepal.Width")
+</code></pre></div></div>
+:ET
