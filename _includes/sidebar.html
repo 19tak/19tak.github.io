@@ -1,92 +1,91 @@
-<!--
-  The Side Bar
--->
+<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="{{ site.BASE_PATH }}/">
+		<img src='{{"/assets/media/profile.jpg"|relative_url}}' class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="{{ site.BASE_PATH }}/">{{ site.title }}</a>
+    </h3>
+</header>
 
-<div id="sidebar" class="d-flex flex-column align-items-end" lang="{{lang}}">
-  <div class="profile-wrapper text-center">
-    <div id="avatar">
-      <a href="{{ '/' | relative_url }}" alt="avatar" class="mx-auto">
-        {% capture avatar_url %}
-          {%- if site.avatar contains '://' -%}
-            {{ site.avatar }}
-          {%- elsif site.img_cdn != '' and site.img_cdn -%}
-            {{ site.avatar | prepend: site.img_cdn }}
-          {%- else -%}
-            {{ site.avatar | relative_url }}
-          {%- endif -%}
-        {% endcapture %}
-        <img src="{{ avatar_url }}" alt="avatar" onerror="this.style.display='none'">
-      </a>
-    </div>
+{% if site.author.bio %}
+{% comment %} <div id="bio" class="text-center">
+	{{ site.author.bio }}
+</div> {% endcomment %}
+<div class="text-center">
+저는 공학자, 개발자 <br/>
+그리고 래퍼로서 꿈을 지속하고 있는 백수입니다.
+</br></br>
+<h1><a href="{{ site.BASE_PATH}}/"><i class="fa fa-home fa-lg"></i></a></h1>
+<h1><a href="{{ site.BASE_PATH}}/{{ site.categories_path }}"><i class="fa fa-folder fa-lg"></i></a></h1>
+<h1><a href="{{ site.BASE_PATH}}/{{ site.tags_path }}"><i class="fa fa-tags fa-lg"></i></a></h1>
+<h1><a href="{{ site.BASE_PATH}}/1995/11/10/about-me.html"><i class="fa fa-info fa-lg"></i></a></h1>
+</br>
+<h3><strong>취미</strong></h3></br>
+게임 : League Of Legends, Tekken, Marvel Futurefight<br/>
+요리 : 양식 위주의 파티 음식, 각종 주류<br/>
+음악 : Hiphop 장르 위주의 작사, 공연 활동
+</div><br/>
+{% endif %}
 
-    <div class="site-title mt-3">
-      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    </div>
-    <div class="site-subtitle font-italic">{{ site.tagline }}</div>
-
-  </div><!-- .profile-wrapper -->
-
-  <ul class="w-100">
-
-    <!-- home -->
-    <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
-      <a href="{{ '/' | relative_url }}" class="nav-link">
-        <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i>
-        <span>{{ site.data.locales[site.lang].tabs.home | default: "home" | upcase }}</span>
-      </a>
-    </li>
-    <!-- the real tabs -->
-    {% for tab in site.tabs %}
-    <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-      <a href="{{ tab.url | relative_url }}" class="nav-link">
-        <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i>
-        {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
-
-        <span>{{ site.data.locales[site.lang].tabs.[tab_name] | default: tab_name | upcase }}</span>
-      </a>
-    </li> <!-- .nav-item -->
-    {% endfor %}
-
-  </ul> <!-- ul.nav.flex-column -->
-
-  <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center">
-
-    {% for entry in site.data.contact %}
-      {% capture url %}
-        {%- if entry.type == 'github' -%}
-          https://github.com/{{ site.github.username }}
-        {%- elsif entry.type == 'twitter' -%}
-          https://twitter.com/{{ site.twitter.username }}
-        {%- elsif entry.type == 'email' -%}
-          {% assign email = site.social.email | split: '@' %}
-          javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
-        {%- elsif entry.type == 'rss' -%}
-          {{ "/feed.xml" | relative_url }}
-        {%- else -%}
-          {{ entry.url }}
-        {%- endif -%}
-      {% endcapture %}
-
-      {% if url %}
-      <a href="{{ url }}" aria-label="{{ entry.type }}"
-        {% unless site.theme_mode %}class="order-{{ forloop.index | plus: 2 }}"{% endunless %}
-        {% unless entry.noblank %}target="_blank" rel="noopener"{% endunless %}>
-        <i class="{{ entry.icon }}"></i>
-      </a>
-      {% endif %}
-
-    {% endfor %}
-
-    {% unless site.theme_mode %}
-      {% if site.data.contact.size > 0 %}
-        <span class="icon-border order-2"></span>
-      {% endif %}
-
-      <span id="mode-toggle-wrapper" class="order-1">
-        {% include mode-toggle.html %}
-      </span>
-    {% endunless %}
-
-  </div> <!-- .sidebar-bottom -->
-
-</div><!-- #sidebar -->
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		{% if site.author.github %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/{{ site.author.github }}">
+				<i class="fa fa-github fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if site.author.instagram %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://instagram.com/{{ site.author.instagram }}">
+				<i class="fa fa-instagram fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if site.author.youtube %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://www.youtube.com/channel/UCse2sGik0zU4fVNZyDjhcOQ">
+				<i class="fa fa-youtube-play fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% comment %} {% if site.author.twitter %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/{{ site.author.twitter }}">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		{% endif %} {% endcomment %}
+		{% if site.author.email %}
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:{{ site.author.email }}">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+	</ul>
+	{% comment %} <ul id="contact-list-secondary" class="list-unstyled list-inline">
+		{% if site.author.pinterest %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://pinterest.com/{{ site.author.pinterest }}">
+				<i class="fa fa-pinterest fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		{% if site.author.linkedin %}
+		<li>
+			<a class="btn btn-default btn-sm" href="https://linkedin.com/in/{{ site.author.linkedin }}">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
+		<li>
+			<a class="btn btn-default btn-sm" href="{{ site.BASE_PATH }}/{{ site.rss_path }}">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul> {% endcomment %}
+</div>
+<!-- sidebar.html end -->
