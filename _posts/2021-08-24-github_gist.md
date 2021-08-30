@@ -41,5 +41,5 @@ L.marker(center)
 
 # 참고
 
-+ **[eona1301 님의 포스팅](https://velog.io/@eona1301/Github-Blog-MarkDown-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1 "[Github Blog] MarkDown 코드 작성")**
+- **[eona1301 님의 포스팅](https://velog.io/@eona1301/Github-Blog-MarkDown-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1 "[Github Blog] MarkDown 코드 작성")**
 [Github Blog] MarkDown 코드 작성
