@@ -4,11 +4,15 @@ icon: fas fa-info
 order: 4
 ---
 
+## 19tak
 
----
-테스트
-   
-### 여기에 뭐로 채워넣을까...
+### contact: 010-3006-7085
+
+### email: wjdxkrdl123@naver.com
+
+| :---: | :---: |
+| ![KakaoTalk_20210923_223623834](https://user-images.githubusercontent.com/84369912/134517401-ba6dd561-5d4d-4cb2-977d-b9c57fc5f978.jpg) | ![KakaoTalk_20210923_223623834_22](https://user-images.githubusercontent.com/84369912/134517829-9266645c-1d04-4689-912c-8cb00d4e7cba.jpg) |
+
 ```
 (21.04 ~      ) : 한국품질재단 AI 개발자 교육 과정 수강 중
 (15.03 ~ 21.08) : 동국대학교 기계로봇에너지공학과
