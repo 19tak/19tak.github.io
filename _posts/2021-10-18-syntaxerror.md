@@ -2,7 +2,7 @@
 layout: post
 title: "[Etc] Python - 오류 / SyntaxError: Non-ASCII character '\xec' in file ~"
 categories: [Etc, Errors]
-tags: [python, error]
+tags: [Python, error]
 fullview: false
 comments: false
 ---
@@ -26,13 +26,13 @@ Python이 주석에 사용된 한글 문자의 인코딩을 이해할 수 없어
 
 ## 1. 스크립트에 한글 지원 인코딩 선언해준다.
 
-```
+```python
 # -*- coding: utf-8 -*-
 ```
 
 또는
 
-```
+```python
 # -*- coding: euc-kr -*-
 ```
 
