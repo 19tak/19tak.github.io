@@ -15,9 +15,10 @@ ls /usr/bin/ | grep python
 
 # Update-alternatives로 파이썬 버전 등록 및 변경
 
-```
-sudo update-alternatives --config python
-```
+<div class="cssterm">
+$ sudo update-alternatives --config python
+update-alternatives: error: no alternatives for python
+</div>
 
 <https://tttsss77.tistory.com/4>
 
