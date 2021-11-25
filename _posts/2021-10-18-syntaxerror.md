@@ -9,7 +9,7 @@ comments: false
 
 # 오류 메세지
 
-```
+```console
 File "~.py", line 11
 SyntaxError: Non-ASCII character '\xec\ in file ~.py on line 11, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
 ```

@@ -9,20 +9,20 @@ comments: false
 
 ## 1. Github Desktop.deb 다운로드
 
-```
-sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.9.0-linux2/GitHubDesktop-linux-2.9.0-linux2.deb
+```console
+$ sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.9.0-linux2/GitHubDesktop-linux-2.9.0-linux2.deb
 ```
 
 ## 2. gdebi-core 설치
 
-```
-sudo apt-get install gdebi-core
+```console
+$ sudo apt-get install gdebi-core
 ```
 
 ## 3. gdebi로 Github Desktop 설치
 
-```
-sudo gdebi GitHubDesktop-linux-2.9.0-linux2.deb
+```console
+$ sudo gdebi GitHubDesktop-linux-2.9.0-linux2.deb
 ```
 
 ---
@@ -37,9 +37,9 @@ deb 파일에 저장된 정보를 통해 패키지 의존성을 확인하고 설
 
 ## 예제
 
-```
-gdebi foo_1.0_all.deb
-gdebi foo-1.0/debian/control
+```console
+$ gdebi foo_1.0_all.deb
+$ gdebi foo-1.0/debian/control
 ```
 
 ---

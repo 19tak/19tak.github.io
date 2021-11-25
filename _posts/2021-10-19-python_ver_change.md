@@ -9,14 +9,14 @@ comments: false
 
 # 파이썬 실행 파일 확인
 
-```
-ls /usr/bin/ | grep python
+```console
+$ ls /usr/bin/ | grep python
 ```
 
 # Update-alternatives로 파이썬 버전 등록 및 변경
 
-```
-sudo update-alternatives --config python
+```console
+$ sudo update-alternatives --config python
 update-alternatives: error: no alternatives for python
 ```
 

@@ -13,8 +13,8 @@ ros 구동은 기본적으로 터미널 창에서 이루어진다. 따라서 여
 
 이에 나는 다중 터미널 창을 추천한다. 내가 사용하는 것은 **terminator**
 
-```
-sudo apt-get install terminator
+```console
+$ sudo apt-get install terminator
 ```
 
 ---
@@ -52,8 +52,8 @@ sudo apt-get install terminator
 
 ## **ibus** 세팅에 들어간다.
 
-```
-ibus-setup
+```console
+$ ibus-setup
 ```
 
 에모지 주석을 삭제, 또는 변경 해주자.

@@ -19,7 +19,7 @@ URL: <https://gist.github.com/>
 
 <script src="https://gist.github.com/19tak/16058e667e7eff94cfc6f58a4f5e22ea.js"></script>
 
-```
+```javascript
 // default zoom
 var zoom = 17;
 // center of the map
