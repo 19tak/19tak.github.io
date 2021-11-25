@@ -23,23 +23,11 @@
   padding-right: $pr;
 }
 
-.timeago::before {
-  content: attr(prefix);
-}
-
 #post-wrapper .post-meta {
   > div:nth-child(2) {
     > span:not(:first-child)::before {
       @include dot;
     }
-  }
-
-  #pv::after {
-    content: " views";
-  }
-
-  .readtime::after {
-    content: " read";
   }
 }
 
@@ -143,21 +131,30 @@
   top: 4rem;
   transition: top 0.2s ease-in-out;
   animation: fade-up 0.8s;
+
   &.topbar-down {
     top: 6rem;
   }
+
   > span {
     @include panel-label;
   }
 }
 
-#toc li > a {
-  line-height: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+#toc li a {
+  font-size: 0.8rem;
 
   &.nav-link:not(.active) {
     color: inherit;
+  }
+
+}
+
+nav[data-toggle=toc] {
+  .nav {
+    .nav > li > a.active {
+      font-weight: 600 !important;
+    }
   }
 }
 
@@ -167,6 +164,7 @@
   > h3 {
     @include label(1.1rem, 600);
   }
+
   .card {
     border-color: var(--card-border-color);
     background-color: var(--card-bg);
@@ -174,9 +172,11 @@
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+
     h3 {
       color: var(--text-color);
     }
+
     &:hover {
       -webkit-transform: translate3d(0, -3px, 0);
       transform: translate3d(0, -3px, 0);
@@ -205,6 +205,7 @@
   ul {
     list-style-type: none;
     padding-inline-start: 1.5rem;
+
     > li::before {
       background: #c2c9d4;
       width: 5px;
@@ -221,9 +222,12 @@
 
 #post-extend-wrapper {
   min-height: 2rem;
+
   #disqus_thread {
+    min-height: 7.5rem;
     margin-bottom: 2rem;
   }
+
 }
 
 .post-tail-bottom a {
@@ -240,33 +244,45 @@
 
   .share-icons {
     font-size: 1.2rem;
+
     a {
       &:not(:last-child) {
         margin-right: 0.25rem;
       }
+
       &:hover {
         text-decoration: none;
+
         > i {
           @extend %btn-share-hovor;
         }
       }
     }
+
     > i {
-      padding-top: 0.35rem;
+      position: relative;
+      bottom: 1px;
+
+      @extend %cursor-pointer;
+
       &:hover {
         @extend %btn-share-hovor;
       }
     }
+
     .fab {
       &.fa-twitter {
         @include btn-sharing-color(rgba(29, 161, 242, 1));
       }
+
       &.fa-facebook-square {
         @include btn-sharing-color(rgb(66, 95, 156));
       }
+
       &.fa-telegram {
         @include btn-sharing-color(rgb(39, 159, 217));
       }
+
       &.fa-weibo {
         @include btn-sharing-color(rgb(229, 20, 43));
       }
@@ -290,8 +306,10 @@
 
 .license-wrapper {
   line-height: 1.2rem;
+
   > a {
     font-weight: 600;
+
     &:hover {
       @extend %link-hover;
     }
@@ -306,21 +324,12 @@
   .post-tail-bottom {
     -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important;
-    >div:first-child {
+
+    > div:first-child {
       width: 100%;
       margin-top: 1rem;
     }
   }
-
-  .post-content > div[class^='language-'] {
-    @include ml-mr(-1.25rem);
-
-    border-radius: 0;
-    &::before { // the lang badge
-      right: 1rem;
-    }
-  }
-
 }
 
 @media all and (max-width: 768px) {
@@ -332,9 +341,10 @@
 @media all and (min-width: 768px) {
   #post-wrapper {
     .post-meta {
-      >div:not(:first-child)::before {
+      > div:not(:first-child)::before {
         @include dot(0.5rem, 0.2rem);
       }
+
       &.flex-column {
         -webkit-box-orient: horizontal !important;
         -webkit-box-direction: normal !important;
@@ -350,7 +360,7 @@
   .post-navigation {
     padding-left: 0;
     padding-right: 0;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
   }
 }
