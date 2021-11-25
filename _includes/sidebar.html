@@ -57,15 +57,17 @@
       {% capture url %}
         {%- if entry.type == 'github' -%}
           https://github.com/{{ site.github.username }}
+
         {%- elsif entry.type == 'instagram' -%}
           https://www.instagram.com/{{ site.instagram.username }}
+
         {%- elsif entry.type == 'youtube' -%}
           https://www.youtube.com/channel/{{ site.youtube.username }}
+
         {%- elsif entry.type == 'email' -%}
           {% assign email = site.social.email | split: '@' %}
           javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
-        {% comment %} {%- elsif entry.type == 'rss' -%}
-          {{ "/feed.xml" | relative_url }} {% endcomment %}
+          
         {%- else -%}
           {{ entry.url }}
         {%- endif -%}
