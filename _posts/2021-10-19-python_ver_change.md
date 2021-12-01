@@ -11,7 +11,15 @@ comments: false
 
 ```console
 $ ls /usr/bin/ | grep python
+python
+python2
+python2.7
+python3
+python3.6
+.....
 ```
+
+다양한 버전의 파이썬 실행 파일을 확인 할 수 있다.
 
 # Update-alternatives로 파이썬 버전 등록 및 변경
 
@@ -20,8 +28,29 @@ $ sudo update-alternatives --config python
 update-alternatives: error: no alternatives for python
 ```
 
-<https://tttsss77.tistory.com/4>
+초기에는 설정된 것이 없기 때문에 아무것도 뜨지 않는다.
 
+```console
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
+```
+
+원하는 버전의 파이썬을 다음과 같이 등록해주면
+
+```console
+$ sudo update-alternatives --config python
+There are 2 choices for the alternative python (providing /usr/bin/python).
+
+  Selection    Path                Priority   Status
+------------------------------------------------------------
+* 0            /usr/bin/python3.6   2         auto mode
+  1            /usr/bin/python2.7   1         manual mode
+  2            /usr/bin/python3.6   2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+```
+
+`sudo update-alternatives --config python` 명령어로 파이썬의 버전을 변경해 줄 수 있다.
 
 ---
 
