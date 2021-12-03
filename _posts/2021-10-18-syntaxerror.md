@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Etc] Python - 오류 / SyntaxError: Non-ASCII character '\xec' in file ~"
+title: "[Error] Python - 오류 / SyntaxError: Non-ASCII character '\xec' in file ~"
 categories: [Etc, Errors]
 tags: [Python, error]
 fullview: false

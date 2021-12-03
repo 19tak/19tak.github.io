@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Etc] 깃허브 블로그에 이쁜 코드 블럭, Github Gist 사용 "
+title: "[Tips] 깃허브 블로그에 이쁜 코드 블럭, Github Gist 사용 "
 categories: [Etc, Tips]
 tags: [github blog, github, blog, jekyll, code block, github gist, gist]
 fullview: false

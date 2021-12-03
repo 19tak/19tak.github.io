@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Etc] Ubuntu, Python 버전 변경"
+title: "[Tips] Ubuntu, Python 버전 변경"
 categories: [Etc, Tips]
 tags: [Python, ubuntu]
 fullview: false

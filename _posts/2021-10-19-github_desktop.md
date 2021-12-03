@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Etc] ubuntu 20.04 / 18.04, Github Desktop 설치 "
+title: "[Tips] ubuntu 20.04 / 18.04, Github Desktop 설치 "
 categories: [Etc, Tips]
 tags: [ubuntu, github desktop]
 fullview: false

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Etc] Ubuntu, terminator ctrl + shift + e 가 안될 때 "
+title: "[Tips] Ubuntu terminator에서 ctrl + shift + e 가 안될 때 "
 categories: [Etc, Tips]
 tags: [ubuntu, terminator, ibus]
 fullview: false
