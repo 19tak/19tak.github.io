@@ -21,9 +21,25 @@ comments: false
 
 <iframe src="https://onedrive.live.com/embed?cid=ADFD1CC231D5D8DA&amp;resid=ADFD1CC231D5D8DA%218234&amp;authkey=AEmoNdmxTI7sCEs&amp;em=2&amp;wdAr=1.7777777777777777" width="880px" height="518px" frameborder="0">포함된 <a target="_blank" href="https://office.com">Microsoft Office</a> 프레젠테이션, 제공: <a target="_blank" href="https://office.com/webapps">Office</a></iframe>
 
+> **소프트 로보틱스(Soft robotics)**는 생물에서 발견되는 것과 비슷한, 강성이 높은 물질로 로봇을 구성하는 것과 관련한 로봇공학의 하위 분야이다.
+> 
+> 소프트 로보틱스는 생물이 주변 환경에 움직여 순응하는 방법에 착안한다. 
+> 
+> 고체 물질로 만들어진 로봇과 달리 소프트 로봇은 태스크 달성을 위해 상당한 유연성과 순응성을 가능케 하며 인간 주변에서 작업을 할 때 개선된 안전성을 보여준다.
+> 
+> 이러한 특징들로 말미암아 의학, 제조 분야에서 잠재적인 이용을 가능케 한다.
+> 
+> 출처: [위키백과](https://ko.wikipedia.org/wiki/%EC%86%8C%ED%94%84%ED%8A%B8_%EB%A1%9C%EB%B3%B4%ED%8B%B1%EC%8A%A4)
+
 ## 프로젝트 요약
 
+실습을 통해 직접 제작해본 소프트 로봇을 활용하여, 원하는 태스크를 달성할 수 있도록, 또는 방향성을 제시한다.
 
+우리 팀은 다양한 소프트 로봇의 작동 원리를 참고하여 **인공 근육**으로서 동작할 수 있는 로봇을 제작하고자 하였다.
+
+초기 구상단계에서는 유전탄성체 액츄에이터를 적층시켜 동작하는 형태를 생각했지만, 전력 공급의 문제로 변경하였다.
+
+최종적으로 선택한 방안은, 공기의 이동을 통해 수축과 인장을 하는 구조체이다.
 
 </div>
 </details>
