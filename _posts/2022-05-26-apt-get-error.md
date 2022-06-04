@@ -1,13 +1,20 @@
 ---
 layout: post
-title: "apt-get error"
-categories: [Study, Algorithm]
-tags: [Python, Algorithm]
+title: "[Error] apt-get error / Hash sum mismatch error"
+categories: [Etc, Errors]
+tags: [ubuntu, apt-get]
 fullview: false
 comments: false
 ---
 
-```shell
+
+# 오류 메세지
+
+오랜만에 우분투로 부팅하고 apt 설치 및 업그레이드를 하려는데
+
+아래와 비슷한 메세지로 **Hash Sum mismatch** 를 포함하는 에러가 발생하였다.
+
+```console
 root@Desktop:/mnt/c/Users$ sudo apt --fix-missing update
 Hit:1 http://security.ubuntu.com/ubuntu bionic-security InRelease
 Hit:2 http://kr.archive.ubuntu.com/ubuntu bionic InRelease
@@ -55,22 +62,28 @@ E: Some index files failed to download. They have been ignored, or old ones used
 
 ---
 
-```shell
-sudo apt-get update -o Acquire::CompressionTypes::Order::=gz
-sudo apt-get upgrade -y
-sudo apt-get update
-```
+# 원인
+
+기존의 apt repository의 주소가 지원을 멈췄을 확률이 높다.
+
+본인은 검색을 통해 daumkakao 에서 지원하는 주소로 변경하였다.
 
 ---
 
-```shell
+# 해결 방법
+
+```console
 sudo vi /etc/apt/sources.list
 ```
+
+**vi**나 **vim** 에디터를 활용해서 기존의 주소들을 바꿔준다.
 
 ```shell
 :%s/kr.archive.ubuntu.com/ftp.daumkakao.com
 ```
 {: file='vi editor'}
+
+gedit이나 다른 에디터를 활용해도 좋다.
 
 ---
 
