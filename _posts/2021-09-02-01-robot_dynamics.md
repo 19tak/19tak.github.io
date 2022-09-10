@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[ME] 로봇동역학, Inverse-Pose Kinematics Matlab 프로그래밍 개발 프로젝트"
-categories: [Mechanical Engineering, Project]
+categories: [Project, Mechanical Engineering]
 tags: [Mechanical Engineering, project]
 fullview: false
 comments: false

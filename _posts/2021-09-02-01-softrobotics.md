@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[ME] 소프트로보틱스, 인공근육로봇 설계 프로젝트"
-categories: [Mechanical Engineering, Project]
+categories: [Project, Mechanical Engineering]
 tags: [Mechanical Engineering, project]
 fullview: false
 comments: false
