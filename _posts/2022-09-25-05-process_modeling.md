@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IT] 프로세스 모델링 이해 + 05 - 분석 <요구 사항 정의>"
+title: "[IT] 프로세스 모델링 이해 05 - 분석 <요구 사항 정의>"
 categories: [Study, IT]
 tags: [IT, Process Modeling]
 fullview: false
