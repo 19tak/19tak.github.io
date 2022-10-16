@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IT] 프로세스 모델링 이해 + 02 - 프로세스 모델링 개요, 절차"
+title: "[IT] 프로세스 모델링 이해 02 - 프로세스 모델링 개요, 절차"
 categories: [Study, IT]
 tags: [IT, Process Modeling]
 fullview: false
