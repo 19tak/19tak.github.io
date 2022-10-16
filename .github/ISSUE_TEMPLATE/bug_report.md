@@ -9,7 +9,7 @@ about: Create a report to help us improve
 
 <!-- Please complete the following list of tasks, and then check it by changing the "[ ]" to "[x]" -->
 
-- [ ] I have read the [tutorials](https://chirpy.cotes.info/categories/tutorial/) and know the correct effect of the functional design.
+- [ ] I have read the [tutorials](https://cotes2020.github.io/chirpy-demo/categories/tutorial/) and know the correct effect of the functional design.
 - [ ] There are no similar reports on [existing issues](https://github.com/cotes2020/jekyll-theme-chirpy/issues?q=is%3Aissue) (including closed ones).
 - [ ] I found the bug on the latest code of the `master` branch.
 
@@ -35,14 +35,15 @@ Steps to reproduce the behavior:
 
 <!-- If applicable, add screenshots to help explain your problem. -->
 
-### Software
+### Environment
 
-<!-- Please complete the following information -->
-- Ruby version: <!-- by running: `ruby -v` -->
-- Gem version: <!-- by running: `gem -v`-->
-- Bundler version: <!-- by running: `bundle -v`-->
-- Jekyll version: <!-- by running: `bundle list | grep " jekyll "` -->
-- Theme version: <!-- by running: `gem list | grep jekyll-theme-chirpy` -->
+| Command                           | Version |
+|-----------------------------------|---------|
+| `ruby -v`                         |         |
+| `gem -v`                          |         |
+| `bundle -v`                       |         |
+| `bundle exec jekyll -v`           |         |
+| `bundle info jekyll-theme-chirpy` |         |
 
 ### Desktop
 
