@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IT] 프로세스 모델링 이해 03 - 분석 <개요>"
+title: "[IT] 프로세스 모델링 이해 03 - 분석 개요"
 categories: [Study, IT]
 tags: [IT, Process Modeling]
 fullview: false
